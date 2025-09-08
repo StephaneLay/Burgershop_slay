@@ -1,0 +1,10 @@
+<h2>Mon profil</h2>
+<button (click)="logout()">Se déconnecter</button>
+
+<h3>Mes commandes</h3>
+<div *ngIf="orders.length === 0">Aucune commande passée</div>
+<div *ngFor="let order of orders" class="order-item">
+  <p>Commande #{{ order._id }}</p>
+  <p>{{ order.items.length }} article(s)</p>
+  <p>Total : {{ order.total | price }}</p>
+</div>

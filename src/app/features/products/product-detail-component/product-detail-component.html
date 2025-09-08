@@ -1,0 +1,7 @@
+<div class="product-detail">
+  <img [src]="product.image" alt="{{ product.name }}">
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.description }}</p>
+  <p class="price">{{ product.price | price }}</p>
+  <button mat-raised-button color="primary" (click)="addToCart()">Ajouter au panier</button>
+</div>
