@@ -8,7 +8,7 @@ import { Product } from "../../../models/product-model";
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
-  imports: [ProductCardComponent,NgFor]
+  imports: [ProductCardComponent,NgFor,ProductCardComponent]
 })
 export class HomePageComponent implements OnInit {
   products: Product[] = [];
@@ -18,7 +18,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getAll().subscribe(data => {
       this.products = data;
-      console.log(data);
+      
     });
   }
 }

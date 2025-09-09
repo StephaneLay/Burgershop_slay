@@ -1,7 +1,25 @@
-<div class="product-detail">
-  <img [src]="product.image" alt="{{ product.name }}">
-  <h2>{{ product.name }}</h2>
-  <p>{{ product.description }}</p>
-  <p class="price">{{ product.price | price }}</p>
-  <button mat-raised-button color="primary" (click)="addToCart()">Ajouter au panier</button>
+<div class="product-detail-page">
+  <div class="back-link">
+    <a routerLink="/">&#8592; Retour à l'accueil</a>
+  </div>
+  <h1 class="product-title">{{ product.name }}</h1>
+  <div class="product-detail-main">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-detail-img">
+    <div class="product-detail-info">
+      <h2>Description</h2>
+      <p>{{ product.description }}</p>
+      <div class="product-detail-actions">
+        <span class="product-detail-price">{{ product.price | price }}</span>
+        <button 
+          class="btn orange"
+          (click)="addToCart()"
+          [disabled]="!product.isAvailable"
+        >
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+  </div>
+  <h2 class="other-title">Nos autres propositions</h2>
+  
 </div>

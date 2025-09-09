@@ -1,7 +1,17 @@
 <div class="product-card">
-  <img [src]="product.image" alt="{{ product.name }}">
+  <img [src]="product.imageUrl" alt="{{ product.name }}">
   <h3>{{ product.name }}</h3>
   <p>{{ product.price | price }}</p>
-  <p>{{ product.description }}</p>
-  <a [routerLink]="['/product', product._id]">Voir le produit</a>
+  <div class="card-actions">
+    <button class="info-btn" [routerLink]="['/product', product.id]" title="Voir le détail">
+      i
+    </button>
+    <button 
+      (click)="addToCart()" 
+      [disabled]="!product.isAvailable"
+      class="btn orange"
+    >
+      {{ product.isAvailable ? 'Ajouter au panier' : 'Produit indisponible' }}
+    </button>
+  </div>
 </div>

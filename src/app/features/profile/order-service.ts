@@ -15,6 +15,6 @@ export class OrderService {
   }
 
   getMyOrders(): Observable<Order[]> {
-    return this.http.get<{ items: Order[] }>(`${this.apiUrl}/me`).pipe(map(res => res.items));
+    return this.http.get<{ items: Order[] }>(`${this.apiUrl}/me`).pipe(map(res => {console.log('Commandes reçues:', res.items); return res.items;}));
   }
 }

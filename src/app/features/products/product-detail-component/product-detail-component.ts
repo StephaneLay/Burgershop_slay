@@ -4,12 +4,14 @@ import { ProductService } from "../product.service";
 import { CartService } from "../../cart/cart-service";
 import { PricePipe } from "../../../shared/pipes/price-pipe-pipe";
 import { Product } from "../../../models/product-model";
+import { NgIf } from "@angular/common";
+import { ProductCardComponent } from "../../../shared/components/product-card-component/product-card-component";
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail-component.html',
   styleUrl: './product-detail-component.css',
-  imports: [PricePipe]
+  imports: [PricePipe, NgIf, ProductCardComponent]
 })
 export class ProductDetailComponent implements OnInit {
   product!: Product;
@@ -28,6 +30,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart() {
-    this.cartService.add(this.product._id);
+    if (!this.product.isAvailable) {
+      return;
+    }
+    this.cartService.add(this.product);
   }
 }

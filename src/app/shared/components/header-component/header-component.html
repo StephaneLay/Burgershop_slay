@@ -1,8 +1,10 @@
-<header>
-  <nav>
-    <a routerLink="/">Accueil</a>
-    <a routerLink="/cart">Panier</a>
-    <a routerLink="/profile">Profil</a>
-    <a routerLink="/login">Connexion</a>
-  </nav>
+<header class="main-header">
+  <a class="logo" routerLink="/">LOGO</a>
+  <div class="header-actions">
+    <button class="btn red" *ngIf="isLoggedIn" (click)="logout()">Me déconnecter</button>
+    <button class="btn orange" *ngIf="isLoggedIn" routerLink="/profile">Mon profile</button>
+    <button class="btn orange" *ngIf="isLoggedIn" routerLink="/cart">Panier</button>
+    <button class="btn orange" *ngIf="!isLoggedIn" routerLink="/login">Connexion</button>
+    <button class="btn orange" *ngIf="!isLoggedIn" routerLink="/register">Inscription</button>
+  </div>
 </header>

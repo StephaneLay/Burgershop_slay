@@ -1,0 +1,90 @@
+.auth-container {
+  background: #181818;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group label {
+  display: none;
+}
+
+.form-group input {
+  background: #232323;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.9rem 1rem;
+  width: 100%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0;
+}
+
+.form-group input::placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
+.auth-form button[type="submit"] {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.9rem 0;
+  width: 220px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-form button[type="submit"]:hover {
+  background: #e67c00;
+}
+
+.error {
+  color: #ff5252;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.auth-link {
+  margin-top: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.auth-link a {
+  color: #ff9800;
+  text-decoration: underline;
+  font-weight: 500;
+}

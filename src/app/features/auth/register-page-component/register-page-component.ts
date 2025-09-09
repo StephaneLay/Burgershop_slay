@@ -2,13 +2,13 @@ import { Component } from "@angular/core";
 import { AuthService } from "../../../core/auth/auth-service";
 import { Router, RouterLink } from "@angular/router";
 import {  FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgIf } from "@angular/common";
 
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page-component.html',
   styleUrl: './register-page-component.css',
-  imports: [ReactiveFormsModule, CommonModule, FormsModule, RouterLink],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, RouterLink,NgIf],
 })
 export class RegisterPageComponent {
   name = '';

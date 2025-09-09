@@ -2,25 +2,16 @@
   <h2>Inscription</h2>
 
   <form (ngSubmit)="register()" class="auth-form">
-    <div class="form-group">
-      <label for="name">Nom :</label>
-      <input type="text" id="name" name="name" [(ngModel)]="name" required />
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" [(ngModel)]="email" required />
-    </div>
-
-    <div class="form-group">
-      <label for="password">Mot de passe :</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required />
-    </div>
-
-    <button type="submit">S’inscrire</button>
-
-    <p class="error" *ngIf="error">{{ error }}</p>
-  </form>
+  <div class="form-group">
+    <input type="text" id="name" name="name" [(ngModel)]="name" required placeholder="Nom" />
+  </div>
+  <div class="form-group">
+    <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="E-mail" />
+    <input type="password" id="password" name="password" [(ngModel)]="password" required placeholder="Mot de passe" />
+  </div>
+  <button type="submit">Confirmer</button>
+  <p class="error" *ngIf="error">{{ error }}</p>
+</form>
 
   <p class="auth-link">
     Déjà inscrit ? <a routerLink="/login">Se connecter</a>

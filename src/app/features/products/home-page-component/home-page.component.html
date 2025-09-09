@@ -1,4 +1,12 @@
-<h2>Nos burgers</h2>
-<div class="product-grid">
-  <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+<div class="homepage">
+  <div class="hero">
+    <img src="https://svfxlxuiyjd7rt5z.public.blob.vercel-storage.com/burger8.jpg" alt="Burger" class="hero-img">
+    <div class="hero-text">
+      <p>Lorem ipsum dolor sit amet consectetur. Velit nisl tempus mattis sit mauris nunc adipiscing sit massa. Maecenas vel facilisis arcu turpis nunc.</p>
+      <h1 class="big-title">BURGERITO</h1>
+    </div>
+  </div>
+  <div class="product-grid">
+    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  </div>
 </div>

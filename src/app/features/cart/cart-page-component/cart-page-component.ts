@@ -1,32 +1,52 @@
 import { Component, OnInit } from "@angular/core";
 import { CartService } from "../cart-service";
-import { ProductService } from "../../products/product.service";
-import { NgFor, NgIf } from "@angular/common";
-import { PricePipe } from "../../../shared/pipes/price-pipe-pipe";
 import { Product } from "../../../models/product-model";
+import { PricePipe } from "../../../shared/pipes/price-pipe-pipe";
+import { NgFor, NgIf } from "@angular/common";
+import { Router } from "@angular/router";
+import { OrderService } from "../../profile/order-service";
 
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page-component.html',
   styleUrls: ['./cart-page-component.css'],
-  imports: [NgIf, PricePipe, NgFor]
+  imports: [PricePipe, NgFor, NgIf]
 })
 export class CartPageComponent implements OnInit {
   items: Product[] = [];
 
   constructor(
     private cartService: CartService,
-    private productService: ProductService
+    private router: Router,
+    private orderService: OrderService // <-- injecte le service
   ) {}
 
-  ngOnInit(): void {
-    const ids = this.cartService.getItems();
-    ids.forEach(id => {
-      this.productService.getById(id).subscribe(p => this.items.push(p));
+  ngOnInit() {
+    this.cartService.items$.subscribe(items => {
+      this.items = items;
     });
   }
 
   confirmOrder() {
-    // Redirection vers confirmation
+    // Envoie la commande au backend
+    const itemIds = this.items.map(item => item.id);
+    this.orderService.createOrder(itemIds).subscribe({
+      next: () => {
+        this.cartService.clear();
+        this.router.navigate(['/order-success']);
+      },
+      error: err => {
+        // Gère l'erreur (affiche un message, etc.)
+        console.error('Erreur lors de la commande:', err);
+      }
+    });
+  }
+
+  removeFromCart(id: string) {
+    this.cartService.remove(id);
+  }
+
+  getTotal(): number {
+    return this.items.reduce((sum, item) => sum + item.price, 0);
   }
 }

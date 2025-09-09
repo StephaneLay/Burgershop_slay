@@ -9,9 +9,15 @@ export class ProductService {
 
   http: HttpClient = inject(HttpClient);
 
+  // getAll(): Observable<Product[]> {
+  //   return this.http.get<{ items: Product[] }>(this.apiUrl).pipe(map(res => res.items));
+  // }
+
   getAll(): Observable<Product[]> {
-    return this.http.get<{ items: Product[] }>(this.apiUrl).pipe(map(res => res.items));
-  }
+  return this.http.get<{ items: Product[] }>(this.apiUrl).pipe(
+    map(res => res.items)
+  );
+}
 
   getById(id: string): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}/${id}`);

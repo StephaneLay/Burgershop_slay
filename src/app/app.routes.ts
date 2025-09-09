@@ -17,6 +17,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
+  { path: 'order-success', component: ConfirmationPageComponent },
   { path: '**', component: NotFoundPageComponent }
 ];
 

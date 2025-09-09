@@ -1,6 +1,8 @@
+import { Product } from "./product-model";
+
 export interface Order {
   _id: string;
-  items: string[]; // tableau d'IDs de produits
+  items: Product[];
   total: number;
   createdAt: string;
 }

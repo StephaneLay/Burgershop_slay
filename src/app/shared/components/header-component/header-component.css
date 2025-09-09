@@ -1,0 +1,47 @@
+.main-header {
+  background: #181818;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn.orange {
+  background: #ff9800;
+  color: #fff;
+}
+
+.btn.orange:hover {
+  background: #e67c00;
+}
+
+.btn.red {
+  background: #ff5252;
+  color: #fff;
+}
+
+.btn.red:hover {
+  background: #d32f2f;
+}
