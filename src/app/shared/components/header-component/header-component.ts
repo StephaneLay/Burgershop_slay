@@ -1,18 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/auth/auth-service';
-import { NgIf } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-header-component',
-  imports: [RouterLink,NgIf],
+  imports: [RouterLink,NgIf,AsyncPipe],
   templateUrl: './header-component.html',
   styleUrl: './header-component.css'
 })
 export class HeaderComponent {
   authservice: any = inject(AuthService);
-  isLoggedIn = this.authservice.isLoggedIn();
+  isLoggedIn$ = this.authservice.isLoggedIn$;
+  
   logout() {
     this.authservice.logout();
+
   }
 }

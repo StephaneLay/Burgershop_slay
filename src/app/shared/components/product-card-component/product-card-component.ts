@@ -10,7 +10,7 @@ import { NgIf } from "@angular/common";
   selector: 'app-product-card',
   templateUrl: './product-card-component.html',
   styleUrls: ['./product-card-component.css'],
-  imports: [RouterLink, PricePipe,NgIf]
+  imports: [RouterLink, PricePipe]
 })
 export class ProductCardComponent {
   @Input() product!: Product;
